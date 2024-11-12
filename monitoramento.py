@@ -1,11 +1,11 @@
 import time
 import adafruit_dht
 import board
-import sys
+import os
 
 # Função para verificar se estamos no GitHub Actions ou em um ambiente com GPIO
 def is_github_actions():
-    return 'GITHUB_ACTIONS' in sys.environ
+    return 'GITHUB_ACTIONS' in os.environ
 
 # Se estivermos em um ambiente sem GPIO (GitHub Actions), simula os valores
 if is_github_actions():
@@ -49,6 +49,4 @@ def verificar_temperatura():
             print("Temperatura ideal.")
     time.sleep(10)  # Aguardar 10 segundos antes da próxima leitura
 
-# Loop para monitorar a temperatura
-while True:
-    verificar_temperatura()
+# Loop para monitorar a tem
