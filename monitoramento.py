@@ -1,14 +1,14 @@
-import Adafruit_DHT
+import Adafruit-CircuitPython-DHT
 import time
 
 # Definindo o tipo do sensor e o pino GPIO
-sensor = Adafruit_DHT.DHT22
+sensor = Adafruit-CircuitPython-DHT.DHT22
 pin = 4  # Alterar para o pino correto onde o sensor está conectado
 
 # Função para ler a temperatura e a umidade
 def ler_temperatura():
     # Tenta obter a leitura do sensor
-    humidade, temperatura = Adafruit_DHT.read_retry(sensor, pin)
+    humidade, temperatura = Adafruit-CircuitPython-DHT.read_retry(sensor, pin)
     
     if humidade is not None and temperatura is not None:
         return temperatura
