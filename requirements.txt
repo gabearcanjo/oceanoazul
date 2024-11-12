@@ -1,1 +1,1 @@
-Adafruit-DHT
+Adafruit-CircuitPython-DHT
