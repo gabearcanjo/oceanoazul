@@ -3,28 +3,34 @@ name: CI - Monitoramento de Temperatura
 on:
   push:
     branches:
-      - main  # Quando houver um push para o branch principal
+      - main
   pull_request:
     branches:
-      - main  # Quando um pull request for criado para o branch principal
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Define que o ambiente será Ubuntu
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout do repositório
       uses: actions/checkout@v2
 
+    - name: Instalar dependências do sistema
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-dev python3-pip python3-setuptools build-essential
+        sudo apt-get install -y libffi-dev libssl-dev
+
     - name: Configurar Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'  # Defina a versão do Python que você está usando no seu projeto
+        python-version: '3.8'
 
     - name: Instalar dependências
       run: |
-        pip install -r requirements.txt  # Certifique-se de que você tem um arquivo requirements.txt com Adafruit_DHT e outras dependências
+        pip install -r requirements.txt
 
     - name: Rodar script de monitoramento
       run: |
-        python monitoramento.py  # Altere para o nome do seu script Python
+        python monitoramento.py
